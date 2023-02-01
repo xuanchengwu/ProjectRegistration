@@ -1,0 +1,15 @@
+D:\source\ProjectRegistration\BLL\bin\Debug\BLL.dll.config
+D:\source\ProjectRegistration\BLL\bin\Debug\BLL.dll
+D:\source\ProjectRegistration\BLL\bin\Debug\BLL.pdb
+D:\source\ProjectRegistration\BLL\bin\Debug\DAL.dll
+D:\source\ProjectRegistration\BLL\bin\Debug\EntityFramework.dll
+D:\source\ProjectRegistration\BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\source\ProjectRegistration\BLL\bin\Debug\DAL.pdb
+D:\source\ProjectRegistration\BLL\bin\Debug\DAL.dll.config
+D:\source\ProjectRegistration\BLL\bin\Debug\EntityFramework.xml
+D:\source\ProjectRegistration\BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\source\ProjectRegistration\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\source\ProjectRegistration\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\source\ProjectRegistration\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\source\ProjectRegistration\BLL\obj\Debug\BLL.dll
+D:\source\ProjectRegistration\BLL\obj\Debug\BLL.pdb

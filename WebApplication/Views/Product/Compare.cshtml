@@ -1,0 +1,106 @@
+﻿@model IEnumerable<DAL.Models.tblProduct>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Compare</title>
+
+    
+    <style>
+        table {
+            display: table;
+        }
+
+        table tr {
+            display: table-cell;
+        }
+
+        table tr td {
+            display: block;
+            border: 0.5px solid black;
+            
+        }
+
+        table tr th {
+            display: block;
+            border: 0.5px solid black;
+            
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        /* Style table headers and table data */
+        th, td {
+            text-align: center;
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <table class="table">
+        <tr>
+            <th height="200">
+                
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Series)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model_Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Series_Info)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feature)
+            </th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td height="200">
+                <img alt="FanA.jpg" 
+                src="data:image/jpeg;base64,@Convert.ToBase64String(item.Product_Image)"
+                     width="200" height="200"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Series)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model_Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Series_Info)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feature)
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
