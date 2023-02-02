@@ -87,3 +87,7 @@ D:\source\ProjectRegistration\WebApplication\bin\DAL.pdb
 D:\source\ProjectRegistration\WebApplication\bin\DAL.dll.config
 D:\source\ProjectRegistration\WebApplication\bin\EntityFramework.xml
 D:\source\ProjectRegistration\WebApplication\bin\EntityFramework.SqlServer.xml
+C:\Users\wxc11\OneDrive\文档\GitHub\ProjectRegistration\WebApplication\obj\Debug\WebApplication.csproj.AssemblyReference.cache
+C:\Users\wxc11\OneDrive\文档\GitHub\ProjectRegistration\WebApplication\obj\Debug\WebApplication.csproj.CoreCompileInputs.cache
+C:\Users\wxc11\OneDrive\文档\GitHub\ProjectRegistration\WebApplication\obj\Debug\WebApplication.dll
+C:\Users\wxc11\OneDrive\文档\GitHub\ProjectRegistration\WebApplication\obj\Debug\WebApplication.pdb

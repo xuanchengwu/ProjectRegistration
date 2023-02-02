@@ -13,3 +13,7 @@ D:\source\ProjectRegistration\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 D:\source\ProjectRegistration\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\source\ProjectRegistration\BLL\obj\Debug\BLL.dll
 D:\source\ProjectRegistration\BLL\obj\Debug\BLL.pdb
+C:\Users\wxc11\OneDrive\文档\GitHub\ProjectRegistration\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\wxc11\OneDrive\文档\GitHub\ProjectRegistration\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\wxc11\OneDrive\文档\GitHub\ProjectRegistration\BLL\obj\Debug\BLL.dll
+C:\Users\wxc11\OneDrive\文档\GitHub\ProjectRegistration\BLL\obj\Debug\BLL.pdb
