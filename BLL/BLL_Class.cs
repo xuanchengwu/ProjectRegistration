@@ -11,7 +11,7 @@ namespace BLL
 {
     public class BLL_Class
     {
-        public tblProduct GetTblProduct_bll(int pid)
+        public tblProduct GetTblProductbyID_bll(int pid)
         {
             return new DAL_Class().GetTblProduct(pid);
         }

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DAL.Models.tblProduct>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display</title>
+
+</head>
+<body>
+    @using (Html.BeginForm("Compare", "Product"))
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product_ID)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product_ID)
+                    </td>
+
+                    <td>
+                        <input type="checkbox" name="compareCB" value=@item.Product_ID>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+
+
+
+
+        <input type="submit" value="compare" onclick="myFunction()">
+    }
+
+
+
+</body>
+</html>
