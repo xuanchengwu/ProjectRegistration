@@ -1,0 +1,5 @@
+WebApplication/bin/
+WebApplication/.vs/
+WebApplication/obj/
+*.vsidx
+*.vsidx

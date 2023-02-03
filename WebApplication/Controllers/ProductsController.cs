@@ -11,6 +11,8 @@ namespace WebApplication.Controllers
         // GET: Products
         public ActionResult Index()
         {
+            //code test
+
             return View();
         }
     }

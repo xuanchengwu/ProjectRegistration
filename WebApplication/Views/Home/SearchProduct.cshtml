@@ -1,0 +1,138 @@
+﻿@model DAL.Models.POC_MarketplaceEntities
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SearchProduct</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <div class="container">
+        @*<div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="input-group">
+                <div class="input-group-btn search-panel">*@
+        @using (Html.BeginForm("SearchProduct", "Home", FormMethod.Post))
+        {
+            <section class="gradient-custom">
+                <div class="container py-5 h-100">
+                    <div class="row justify-content-center align-items-center h-100">
+                        <div class="col-12 col-lg-9 col-xl-7">
+                            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                                <div class="card-body p-4 p-md-5">
+                                    @*<button type="submit" class="btn btn-default dropdown-toggle bg-primary">*@
+                                    @Html.DropDownList("selectedCategoryID", (SelectList)ViewBag.Categories, "Category", new { @class = "btn btn-default dropdown-toggle bg-primary text-white", @id = "ddlCategories" })
+                                    @*@Html.DropDownList("CategoryTitle", null, new { @class = "btn btn-default dropdown-toggle bg-primary text-white" })*@
+                                    @*</button>*@
+
+                                    @*@Html.DropDownList("selectedSubCategoryID", (SelectList)ViewBag.Subcategories, "--Search--", new { @id = "ddlSubcategories", @class = "chosen-select" })*@
+
+                                    @*<input type="hidden" name="search_param" value="all" id="search_param">*@
+                                    @*<input type="text" class="form-control" name="x" id="search" placeholder="Search">*@
+                                    @*<input type="text" id="search" class="form-control form-control-sm" />*@
+                                    @Html.DropDownList("selectedSubCategoryID", (SelectList)ViewBag.Subcategories, "Subcategory", new { @id = "ddlSubcategories", @class = "btn btn-default dropdown-toggle bg-primary text-white" })
+                                    <input type="text" id="search" class="form-control form-control-sm" />
+                                    @*<input type="text" id="search" class="form-control form-control-sm" />*@
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default bg-primary text-white" type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                            </svg>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    </div>
+                    @*</div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet" />
+
+    <script>
+        $(document).ready(function () {
+            $(".chosen-select").chosen({
+                no_results_text: "No results found!",
+                width: "50%"
+            });
+
+            $("#ddlCategories").change(function () {
+                var selectedCategoryID = $(this).val();
+
+                $.ajax({
+                    url: "/Home/getSubCategories",
+                    type: "GET",
+                    data: { categoryID: selectedCategoryID },
+                    success: function (subCategories) {
+                        $("#ddlSubcategories").empty();
+                        $("#ddlSubcategories").append(new Option("Subcategory", ""));
+                        $.each(subCategories, function (index, subCategories) {
+                            $("#ddlSubcategories").append(new Option(subCategories.Name, subCategories.Id));
+                        });
+                        $(".chosen-select").trigger("chosen:updated");
+                    },
+                    error: function () {
+                        alert("An error has occurred while retrieving subcategories.");
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        /*.gradient-custom {*/
+            /* fallback for old browsers */
+            /*background: #f093fb;
+            background: -webkit-linear-gradient(to bottom right, rgba(0,0,128,1),rgba(135,206,250,1));*/
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            /*background: linear-gradient(to bottom right, rgba(0,0,128,1),rgba(135,206,250,1));
+        }*/
+        html {
+            background: #f093fb; /* fallback color */
+            background: linear-gradient( to bottom, #37D5D6, #36096D);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+        input[type="text"] {
+            display: inline-block;
+        }
+        
+
+        .card-registration .select-input.form-control[readonly]:not([disabled]) {
+            font-size: 1rem;
+            line-height: 2.15;
+            padding-left: .75em;
+            padding-right: .75em;
+        }
+
+        .card-registration .select-arrow {
+            top: 13px;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+    </style>
+
+</body>
+</html>
