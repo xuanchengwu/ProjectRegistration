@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using BLL;
 using DAL;
-using DAL.Models;
 
 namespace WebApplication.Controllers
 {

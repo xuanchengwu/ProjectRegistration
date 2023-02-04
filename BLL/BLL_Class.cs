@@ -1,11 +1,9 @@
-﻿using DAL;
-using DAL.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
 
 namespace BLL
 {
@@ -15,7 +13,5 @@ namespace BLL
         {
             return new DAL_Class().GetTblProduct(pid);
         }
-
-
     }
 }
