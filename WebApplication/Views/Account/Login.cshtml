@@ -19,13 +19,23 @@
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- Navbar content -->
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+
+                @Html.Partial("_loginPartialView")
+            </div>
+            </div>
+</nav>
+    @*@Html.Partial("_loginPartialView")*@
     <section class="gradient-custom">
         <div class="container py-5 h-100">
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col-12 col-lg-9 col-xl-7">
                     <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                         <div class="card-body p-4 p-md-5">
-                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Login</h3>
                             @using (Html.BeginForm("Login", "Account", FormMethod.Post))
                             {
                                 <div class="row align-items-center pt-4 pb-3">
@@ -69,13 +79,13 @@
         </div>
     </section>
     <style>
-        .gradient-custom {
+        /*.gradient-custom {*/
             /* fallback for old browsers */
-            background: #f093fb;
-            background: -webkit-linear-gradient(to bottom right, rgba(0,0,128,1),rgba(135,206,250,1));
+            /*background: #f093fb;
+            background: -webkit-linear-gradient(to bottom right, rgba(0,0,128,1),rgba(135,206,250,1));*/
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            background: linear-gradient(to bottom right, rgba(0,0,128,1),rgba(135,206,250,1));
-        }
+            /*background: linear-gradient(to bottom right, rgba(0,0,128,1),rgba(135,206,250,1));
+        }*/
 
         .card-registration .select-input.form-control[readonly]:not([disabled]) {
             font-size: 1rem;
@@ -86,6 +96,22 @@
 
         .card-registration .select-arrow {
             top: 13px;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%
+        }
+
+        body {
+            min-height: 100%;
+            background: #f093fb;
+            background: -webkit-linear-gradient(to bottom right, rgba(0,0,128,1),rgba(135,206,250,1));
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to bottom right, rgba(0,0,128,1),rgba(135,206,250,1));
         }
     </style>
 </body>

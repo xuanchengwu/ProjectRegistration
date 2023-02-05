@@ -67,9 +67,14 @@ namespace WebApplication.Controllers
             //}
 
             // Search by query
+            bool b = !string.IsNullOrEmpty(query);
             if (!string.IsNullOrEmpty(query))
             {
                 products = products.Where(p => p.Product_Name.Contains(query) || p.Model.Contains(query) || p.Series_Info.Contains(query));
+            }
+            else
+            {
+                return View("Result");
             }
 
             return View("Result", products.ToList());

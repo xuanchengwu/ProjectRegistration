@@ -1,22 +1,41 @@
-﻿@if (Session["Email"] == null)
+﻿<div class="navbar-text">
+@if (Session["Email"] == null)
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Register", "Register", null, null)
+    <ul class="navbar-nav ms-auto flex-nowrap">
+        <li class="nav-item">
+            @Html.ActionLink("Register", "Register", "Account", null, new { @class = "nav-link" })
         </li>
-        <li>
-            @Html.ActionLink("Login", "Login", null, null)
+        <li class="nav-item">
+            @Html.ActionLink("Login", "Login", "Account", null, new { @class = "nav-link" })
         </li>
     </ul>
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hi! " + Session["Email"], "Index", "Home", null, null)
-        </li>
-        <li>
-            @Html.ActionLink("Logout", "Logout", "Account", null)
-        </li>
+    <ul class="navbar-nav ms-auto flex-nowrap">
+
+            <li class="nav-item">
+                @Html.ActionLink("Hi! " + Session["Email"], "Index", "Home", null, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "nav-link" })
+            </li>
     </ul>
+
+
 }
+</div>
+<style>
+
+.navbar-brand.abs
+    {
+        position: absolute;
+        width: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+
+</style>
+            
