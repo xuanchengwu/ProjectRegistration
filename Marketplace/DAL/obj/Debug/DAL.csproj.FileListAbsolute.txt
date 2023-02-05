@@ -1,0 +1,12 @@
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\bin\Debug\DAL.dll.config
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\bin\Debug\DAL.dll
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\bin\Debug\DAL.pdb
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\bin\Debug\EntityFramework.dll
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\bin\Debug\EntityFramework.xml
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\obj\Debug\DAL.dll
+C:\Users\wxc11\OneDrive\文档\GitHub\MyProject\Marketplace\DAL\obj\Debug\DAL.pdb
