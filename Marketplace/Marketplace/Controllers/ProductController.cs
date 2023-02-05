@@ -29,7 +29,7 @@ namespace Marketplace.Controllers
         public ActionResult Index(FormCollection f)
         {
 
-            //hello
+
             string minYear = Request.Form["MinYear"];
             string maxYear = Request.Form["MaxYear"];
             string brand = Request.Form["Brand"];
