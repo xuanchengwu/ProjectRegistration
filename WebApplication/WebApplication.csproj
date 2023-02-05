@@ -129,7 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,12 +210,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Products\ProductPage.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Home\SearchProduct.cshtml" />
     <Content Include="Views\Shared\_loginPartialView.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Compare.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -226,6 +227,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\C# web-app\C#-Project\BLL\BLL.csproj">
+      <Project>{52c1f583-be9d-492a-99a2-1d2dc7ee9ad0}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\C# web-app\C#-Project\DAL_Layer\DAL.csproj">
       <Project>{ad8bdede-f1d8-40a5-bf58-c51fe35dd337}</Project>
       <Name>DAL</Name>

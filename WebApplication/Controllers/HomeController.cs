@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DAL.Models;
-
+using BLL;
 namespace WebApplication.Controllers
 {
     public class HomeController : Controller
@@ -74,10 +74,10 @@ namespace WebApplication.Controllers
             }
             else
             {
-                return View("Result");
+                return View("~/Views/Product/Index.cshtml");
             }
 
-            return View("Result", products.ToList());
+            return View("~/Views/Product/Index.cshtml", products.ToList());
         }
             
         
