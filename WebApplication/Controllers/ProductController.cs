@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Optimization;
 
 namespace Marketplace.Controllers
 {
@@ -15,16 +16,16 @@ namespace Marketplace.Controllers
         BLL_Class bll = new BLL_Class();
 
         [HttpGet]
-        public ActionResult Index(List<tblProduct> product)
+        public ActionResult Index(List<tblProduct> products)
         {
-            //
-            return View(product);
+
+            return View(products);
         }
 
 
         //apply filters
         [HttpPost]
-        public ActionResult Index(FormCollection f)
+        public ActionResult Index()
         {
 
 
@@ -58,17 +59,9 @@ namespace Marketplace.Controllers
             product = (List<tblProduct>)product.Where(p => p.Product_Name.Contains(Brand)).ToList();
 
 
-
-
-
-
             return View(product);
 
         }
-
-
-
-
 
 
         public ActionResult Compare(FormCollection f)
@@ -79,14 +72,20 @@ namespace Marketplace.Controllers
             int[] arr = StringtoIntArr(s);
             List<tblProduct> l = new List<tblProduct>();
 
-            foreach (int i in arr)
+
+            if (arr.Length <= 1)
             {
-                l.Add(bll.GetTblProduct_bll(i));
+                ViewBag.ErrorMessage = "Please select more than one item.";
+
+                return View("Error");
             }
-
-            return View(l);
-
-
+            else {
+                foreach (int i in arr)
+                {
+                    l.Add(bll.GetTblProduct_bll(i));
+                }
+                return View(l);
+            }
         }
 
         public int[] StringtoIntArr(String s)

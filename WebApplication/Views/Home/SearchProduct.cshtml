@@ -38,7 +38,7 @@
 
 
                                 @Html.DropDownList("selectedSubCategoryID", (SelectList)ViewBag.Subcategories, "Subcategory", new { @id = "ddlSubcategories", @class = "btn btn-default dropdown-toggle bg-primary text-white" })
-                                @Html.TextBox("query", "Search", new { @class = "form-control form-control-sm" })
+                                @Html.TextBox("query", "", new { @class = "form-control form-control-sm" })
 
                                 <span class="input-group-btn">
                                     <button class="btn btn-default bg-primary text-white" type="submit">

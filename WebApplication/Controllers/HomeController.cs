@@ -15,19 +15,7 @@ namespace WebApplication.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
 
         public ActionResult SearchProduct()
         {
@@ -68,14 +56,16 @@ namespace WebApplication.Controllers
 
             // Search by query
             bool b = !string.IsNullOrEmpty(query);
-            if (!string.IsNullOrEmpty(query))
+            if (b)
             {
                 products = products.Where(p => p.Product_Name.Contains(query) || p.Model.Contains(query) || p.Series_Info.Contains(query));
             }
-            else
+            if (products.Count() == 0 || !b)
             {
-                return View("~/Views/Product/Index.cshtml");
+                ViewBag.ErrorMessage = "No such products can be found";
+                return View("~/Views/Product/Error.cshtml");
             }
+
 
             return View("~/Views/Product/Index.cshtml", products.ToList());
         }
