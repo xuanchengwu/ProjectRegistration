@@ -217,6 +217,7 @@
     <Content Include="Views\Shared\_loginPartialView.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Compare.cshtml" />
+    <Content Include="Views\Shared\_searchPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

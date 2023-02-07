@@ -31,14 +31,7 @@ namespace WebApplication.Controllers
 
         public ActionResult SearchProduct()
         {
-            //IEnumerable<SelectListItem> items = objPOC_MarketplaceEntities.tblCategories.Select(c => new SelectListItem
-            //{
-            //    Value = c.Category_Name,
-            //    Text = c.Category_Name
-            //});
-            //ViewBag.CategoryTitle = items;
-
-            //return View();
+            
             ViewBag.Categories = new SelectList(objPOC_MarketplaceEntities.tblCategories, "Category_ID", "Category_Name");
             ViewBag.Subcategories = new SelectList(Enumerable.Empty<tblSubCategory>(), "SubCategory_ID", "SubCategory_Name");
             return View();
@@ -60,12 +53,6 @@ namespace WebApplication.Controllers
                 products = products.Where(p => p.SubCategory_ID == selectedSubCategoryID.Value);
             }
 
-            //// Filter by selected subcategory
-            //if (subcategoryId.HasValue)
-            //{
-            //    products = products.Where(p => p.SubcategoryId == subcategoryId.Value);
-            //}
-
             // Search by query
             bool b = !string.IsNullOrEmpty(query);
             if (!string.IsNullOrEmpty(query))
@@ -79,8 +66,8 @@ namespace WebApplication.Controllers
 
             return View("~/Views/Product/Index.cshtml", products.ToList());
         }
-            
-        
+
+        [HttpGet]
         public ActionResult getSubCategories(int categoryID) 
         {
             var subCategories = objPOC_MarketplaceEntities.tblSubCategories.Where(s => s.Catagory_ID == categoryID).Select(s => new { Id = s.SubCategory_ID, Name = s.SubCategory_Name });

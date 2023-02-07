@@ -66,25 +66,28 @@ namespace Marketplace.Controllers
 
         }
 
+        //[HttpGet]
+        //public ActionResult Compare(List<tblProduct> product)
+        //{
+        //    return View(product);
+        //}
 
-
-
-
-
-        public ActionResult Compare(FormCollection f)
+        public ActionResult Compare(FormCollection f, List<tblProduct> product, int? selectedCategoryID, int? selectedSubCategoryID, string query)
         {
-
+            POC_MarketplaceEntities objPOC_MarketplaceEntities = new POC_MarketplaceEntities();
+            ViewBag.Categories = new SelectList(objPOC_MarketplaceEntities.tblCategories, "Category_ID", "Category_Name", selectedCategoryID);
+            ViewBag.Subcategories = new SelectList(objPOC_MarketplaceEntities.tblSubCategories.Where(t => t.Catagory_ID == selectedCategoryID), "SubCategory_ID", "SubCategory_Name", selectedSubCategoryID);
             string s = f["compareCB"];
             BLL_Class bll = new BLL_Class();
             int[] arr = StringtoIntArr(s);
-            List<tblProduct> l = new List<tblProduct>();
+            product = new List<tblProduct>();
 
             foreach (int i in arr)
             {
-                l.Add(bll.GetTblProduct_bll(i));
+                product.Add(bll.GetTblProduct_bll(i));
             }
 
-            return View(l);
+            return View(product);
 
 
         }
@@ -107,7 +110,6 @@ namespace Marketplace.Controllers
                 return new int[0];
             }
         }
-
 
     }
 }
