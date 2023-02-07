@@ -25,18 +25,20 @@ namespace Marketplace.Controllers
 
         //apply filters
         [HttpPost]
-        public ActionResult Index()
+        public ActionResult Index(FormCollection f)
         {
 
 
             string minYear = Request.Form["MinYear"];
             string maxYear = Request.Form["MaxYear"];
             string brand = Request.Form["Brand"];
+            string info = Request.Form["Series_Info"];
 
             //default
             int MinYear = 0;
             int MaxYear = 2023;
             string Brand = "";
+            string Info = "";
 
 
             List<tblProduct> product = bll.GetTblProductList();
@@ -53,15 +55,27 @@ namespace Marketplace.Controllers
                 Brand = brand;
             }
 
+            if (!string.IsNullOrEmpty(info))
+            {
+                Info = info;
+            }
+
 
             product = (List<tblProduct>)product.Where(p => p.Model_Year >= MinYear).ToList();
             product = (List<tblProduct>)product.Where(p => p.Model_Year <= MaxYear).ToList();
             product = (List<tblProduct>)product.Where(p => p.Product_Name.Contains(Brand)).ToList();
+            product = (List<tblProduct>)product.Where(p => p.Series_Info.Contains(Info)).ToList();
+
+
+
+
 
 
             return View(product);
 
         }
+
+
 
         //[HttpGet]
         //public ActionResult Compare(List<tblProduct> product)
