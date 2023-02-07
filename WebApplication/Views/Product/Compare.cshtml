@@ -10,7 +10,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Compare</title>
-
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 
     <style>
         table {
@@ -56,6 +59,7 @@
     </style>
 </head>
 <body>
+    @Html.Partial("_searchPartial")
 
     <table class="table">
         <tr>
@@ -86,11 +90,11 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td height="200">
-                    <img alt="FanA.jpg"
-                         src="data:image/jpeg;base64,@Convert.ToBase64String(item.Product_Image)"
-                         width="200" height="200" />
-                </td>
+                @*<td height="200">
+                        <img alt="FanA.jpg"
+                             src="data:image/jpeg;base64,@Convert.ToBase64String(item.Product_Image)"
+                             width="200" height="200" />
+                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Product_Name)
                 </td>
@@ -113,7 +117,36 @@
         }
 
     </table>
-
     <button onclick="window.history.back();">Go back</button>
+    <script>
+        $(document).ready(function () {
+            $(".chosen-select").chosen({
+                no_results_text: "No results found!",
+                width: "50%"
+            });
+
+            $("#ddlCategories").change(function () {
+                var selectedCategoryID = $(this).val();
+
+                $.ajax({
+                    url: "/Home/getSubCategories",
+                    type: "GET",
+                    data: { categoryID: selectedCategoryID },
+                    success: function (subCategories) {
+                        $("#ddlSubcategories").empty();
+                        $("#ddlSubcategories").append(new Option("Subcategory", ""));
+                        $.each(subCategories, function (x, subCategories) {
+                            $("#ddlSubcategories").append(new Option(subCategories.Name, subCategories.Id));
+                        });
+                        $(".chosen-select").trigger("chosen:updated");
+                    },
+                    error: function () {
+                        alert("An error has occurred while retrieving subcategories.");
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>

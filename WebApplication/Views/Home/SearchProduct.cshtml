@@ -30,25 +30,9 @@
                 <div class="col-12 col-lg-9 col-xl-7">
                     <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                         <div class="card-body p-4 p-md-5">
-                            @using (Html.BeginForm("SearchProduct", "Home", FormMethod.Post))
-                            {
+                           
+                            @Html.Partial("_searchPartial")
 
-                                @Html.DropDownList("selectedCategoryID", (SelectList)ViewBag.Categories, "Category", new { @class = "btn btn-default dropdown-toggle bg-primary text-white", @id = "ddlCategories" })
-
-
-
-                                @Html.DropDownList("selectedSubCategoryID", (SelectList)ViewBag.Subcategories, "Subcategory", new { @id = "ddlSubcategories", @class = "btn btn-default dropdown-toggle bg-primary text-white" })
-                                @Html.TextBox("query", "", new { @class = "form-control form-control-sm" })
-
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default bg-primary text-white" type="submit">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                        </svg>
-                                    </button>
-                                </span>
-
-                            }
                         </div>
                     </div>
                 </div>
@@ -91,14 +75,6 @@
 
     <style>
         
-        /*html {
-            background: #f093fb;*/ /* fallback color */
-        /*background: linear-gradient( to bottom, #37D5D6, #36096D);
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 100%;
-            height: 100%;
-        }*/
 
         input[type="text"] {
             display: inline-block;
